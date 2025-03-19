@@ -17,11 +17,11 @@ class Pro6ppController
             'housenumber' => 'required',
         ]);
 
-        $cacheKey = 'pro6pp-'.$request->postcode;
+        $cacheKey = 'pro6pp-' . $request->postcode;
 
         $response = Cache::rememberForever($cacheKey, function () use ($request) {
             return Http::pro6pp()->get('/autocomplete', [
-                'nl_sixpp'=> $request->postcode
+                'nl_sixpp' => $request->postcode
             ])->throw()->json();
         });
 
@@ -38,7 +38,7 @@ class Pro6ppController
 
         return collect(explode(';', $validRanges))->contains(function ($range) use ($housenumber, $houseNumberWithoutAddition) {
             $range = trim($range);
-            if ($range === $housenumber || (int)preg_replace('/\D/', '', $range) === $houseNumberWithoutAddition) {
+            if ($range === $housenumber || (int) preg_replace('/\D/', '', $range) === $houseNumberWithoutAddition) {
                 return true;
             }
 
