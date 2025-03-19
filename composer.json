@@ -1,0 +1,41 @@
+{
+    "name": "rapidez/pro6pp-postcode",
+    "description": "Support postcode lookup using pro6pp.nl",
+    "keywords": [
+        "rapidez",
+        "pro6pp-postcode",
+        "postcode",
+        "postcode lookup",
+        "pro6pp"
+    ],
+    "homepage": "https://github.com/rapidez/pro6pp-postcode",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "indy koning",
+            "email": "indy@justbetter.nl",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.1|^8.2",
+        "rapidez/core": "^2.8|^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rapidez\\Pro6ppPostcode\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rapidez\\Pro6ppPostcode\\Pro6ppPostcodeServiceProvider"
+            ]
+        }
+    }
+}
