@@ -5,7 +5,7 @@
 
 ### Changed
 
-- Reduced api calls by (#1)
+- Reduced api calls (#1)
 
 ## [1.0.0](https://github.com/rapidez/pro6pp-postcode/releases/tag/1.0.0) - 2025-03-19
 
