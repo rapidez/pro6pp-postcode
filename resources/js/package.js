@@ -1,7 +1,7 @@
-import { set, useDebounceFn, useMemoize } from '@vueuse/core'
+import { useDebounceFn, useMemoize } from '@vueuse/core'
 
 document.addEventListener('vue:loaded', function () {
-    window.app.$on(
+    window.$on(
         'postcode-change',
         useDebounceFn(updateAddressFromPro6pp, 100),
     )
@@ -40,12 +40,12 @@ async function updateAddressFromPro6pp(address) {
             response?.error == 'nl_sixpp not found' ||
             response?.error == 'Streetnumber not found'
         ) {
-            set(address, 'city', '')
-            set(address.street, 0, '')
+            address.city = ''
+            address.street[0] = ''
         }
         return
     }
 
-    set(address, 'city', foundAddress.city)
-    set(address.street, 0, foundAddress.street)
+    address.city = foundAddress.city
+    address.street[0] = foundAddress.street
 }
