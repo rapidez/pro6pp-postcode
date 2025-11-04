@@ -1,11 +1,5 @@
 import { useDebounceFn, useMemoize } from '@vueuse/core'
-
-document.addEventListener('vue:loaded', function () {
-    window.$on(
-        'postcode-change',
-        useDebounceFn(updateAddressFromPro6pp, 100),
-    )
-})
+import { on } from 'Vendor/rapidez/core/resources/js/polyfills/emit.js'
 
 const getAddressFromPro6pp = useMemoize(async function (postcode, housenumber) {
     return window.rapidezAPI(
@@ -49,3 +43,5 @@ async function updateAddressFromPro6pp(address) {
     address.city = foundAddress.city
     address.street[0] = foundAddress.street
 }
+
+on('postcode-change', useDebounceFn(updateAddressFromPro6pp, 100), { autoremove: false })
