@@ -31,14 +31,14 @@ Then you can use it like:
 
 ```html
 <input 
-    v-on:change="window.$emit('postcode-change', addressVariables)" 
+    v-on:change="window.app.$emit('postcode-change', addressVariables)" 
     name="postcode" 
     label="Postcode" 
     v-model="addressVariables.postcode" 
     required
 />
 <input 
-    v-on:change="window.$emit('postcode-change', addressVariables)" 
+    v-on:change="window.app.$emit('postcode-change', addressVariables)" 
     name="street[1]" 
     type="number" 
     label="Housenumber" 
