@@ -13,7 +13,7 @@ const getAddressFromPro6pp = useMemoize(async function (postcode, housenumber) {
     )
 })
 
-async function updateAddressFromPro6pp(address) {
+async function updateAddressFromPro6pp(address, event) {
     if ((address?.country_id || address?.country_code) != 'NL') {
         return
     }
@@ -42,6 +42,7 @@ async function updateAddressFromPro6pp(address) {
 
     address.city = foundAddress.city
     address.street[0] = foundAddress.street
+    event?.target?.parentElement?.dispatchEvent?.(new Event('change', {bubbles: true}));
 }
 
 on('postcode-change', useDebounceFn(updateAddressFromPro6pp, 100), { autoremove: false })
