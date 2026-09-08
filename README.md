@@ -1,3 +1,6 @@
+> [!WARNING]
+> Deprecated! Use https://github.com/rapidez/postcode
+
 # Rapidez pro6pp-postcode
 
 Support postcode lookup using pro6pp.nl
