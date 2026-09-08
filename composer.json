@@ -1,6 +1,7 @@
 {
     "name": "rapidez/pro6pp-postcode",
     "description": "Support postcode lookup using pro6pp.nl",
+    "abandoned": "rapidez/postcode",
     "keywords": [
         "rapidez",
         "pro6pp-postcode",
